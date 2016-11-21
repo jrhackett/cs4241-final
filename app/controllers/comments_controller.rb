@@ -53,7 +53,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to sound_path(@sound) }
+      format.html { redirect_to board_sound_path(@sound) }
       format.xml  { head :ok }
     end
   end
