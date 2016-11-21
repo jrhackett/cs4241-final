@@ -24,17 +24,21 @@ class SoundsController < ApplicationController
   # POST /sounds
   # POST /sounds.json
   def create
-    @sound = Sound.new(sound_params)
+    # @sound = Sound.new(sound_params)
 
-    respond_to do |format|
-      if @sound.save
-        format.html { redirect_to @sound, notice: 'Sound was successfully created.' }
-        format.json { render :show, status: :created, location: @sound }
-      else
-        format.html { render :new }
-        format.json { render json: @sound.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @sound.save
+    #     format.html { redirect_to @sound, notice: 'Sound was successfully created.' }
+    #     format.json { render :show, status: :created, location: @sound }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @sound.errors, status: :unprocessable_entity }
+    #   end
+    # end
+
+    @board = Board.find(params[:board_id])
+    @comment = @board.sounds.create(sound_params)
+    redirect_to board_path(@board)
   end
 
   # PATCH/PUT /sounds/1
@@ -54,10 +58,13 @@ class SoundsController < ApplicationController
   # DELETE /sounds/1
   # DELETE /sounds/1.json
   def destroy
+    @board = Board.find(params[:board_id])
+    @sound = Sound.find(params[:id])
     @sound.destroy
+
     respond_to do |format|
-      format.html { redirect_to sounds_url, notice: 'Sound was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to board_path(@board) }
+      format.xml  { head :ok }
     end
   end
 
@@ -69,6 +76,6 @@ class SoundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sound_params
-      params.require(:sound).permit(:name)
+      params.require(:sound).permit(:name, :board_id)
     end
 end
