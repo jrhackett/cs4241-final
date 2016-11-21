@@ -15,8 +15,10 @@
   <p>
     <b>Sound:</b>
     <%= sound.name %>
+
+    <%= link_to 'Show', board_sound_path(@board, sound) %>
+    <%= link_to 'Delete', board_sound_path(@board, sound), data: { confirm: 'Are you sure?' }, method: :delete %>
   </p>
-  <%= link_to 'Delete', board_sound_path(@board, sound), data: { confirm: 'Are you sure?' }, method: :delete %>
 <% end %>
 
 <h2>Add a sound:</h2>

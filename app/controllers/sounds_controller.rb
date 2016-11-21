@@ -24,18 +24,6 @@ class SoundsController < ApplicationController
   # POST /sounds
   # POST /sounds.json
   def create
-    # @sound = Sound.new(sound_params)
-
-    # respond_to do |format|
-    #   if @sound.save
-    #     format.html { redirect_to @sound, notice: 'Sound was successfully created.' }
-    #     format.json { render :show, status: :created, location: @sound }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @sound.errors, status: :unprocessable_entity }
-    #   end
-    # end
-
     @board = Board.find(params[:board_id])
     @comment = @board.sounds.create(sound_params)
     redirect_to board_path(@board)
@@ -72,6 +60,7 @@ class SoundsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_sound
       @sound = Sound.find(params[:id])
+      @board = Board.find(params[:board_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -25,8 +25,9 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @sound = Sound.find(params[:sound_id])
+    @board = Board.find(params[:board_id])
     @comment = @sound.comments.create(comment_params)
-    redirect_to sound_path(@sound)
+    redirect_to board_sound_path(@board, @sound)
   end
 
   # PATCH/PUT /comments/1
@@ -46,6 +47,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    @board = Board.find(params[:board_id])
     @sound = Sound.find(params[:sound_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
