@@ -53,7 +53,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to board_sound_path(@sound) }
+      format.html { redirect_to board_sound_path(@board, @sound) }
       format.xml  { head :ok }
     end
   end
@@ -66,6 +66,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:body, :sound_id)
+      params.require(:comment).permit(:body, :sound_id, :board_id)
     end
 end

@@ -11,7 +11,7 @@
     <b>Comment:</b>
     <%= comment.body %>
   </p>
-  <%= link_to 'Delete', board_sound_comment_path(@sound, comment), data: { confirm: 'Are you sure?' }, method: :delete %>
+  <%= link_to 'Delete', board_sound_comment_path(@board, @sound, comment), data: { confirm: 'Are you sure?' }, method: :delete %>
 <% end %>
 
 <h2>Add a comment:</h2>
@@ -25,5 +25,5 @@
   </div>
 <% end %>
 
-<%= link_to 'Edit', edit_board_sound_path %> |
-<%= link_to 'Back', board_path %>
+<%= link_to 'Edit', edit_board_sound_path(@board, @sound) %> |
+<%= link_to 'Back', board_path(@board) %>
