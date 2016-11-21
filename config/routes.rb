@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :sounds do 
-	resources :comments
+  resources :boards do 
+    resources :sounds do 
+	  resources :comments
+    end
   end
-  root "sounds#index"
+  root "boards#index"
 end
