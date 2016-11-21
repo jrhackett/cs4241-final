@@ -1,0 +1,32 @@
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<br />
+
+<%= link_to "New sound", new_sound_path, class: "btn btn-primary" %>
+
+<table class = "table table-bordered table-striped">
+   <thead>
+      <tr>
+         <th>Name</th>
+         <th>Download Link</th>
+         <th> </th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @sounds.each do |sound| %>
+         
+         <tr>
+            <td><%= sound.name %></td>
+            <td><%= link_to "Download sound", sound.soundAttachment_url %></td>
+            <td><%= button_to "Delete",  sound, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{sound.name}?" %></td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>

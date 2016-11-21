@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sound.name %>
+</p>
+
+<h2>Comments</h2>
+<% @sound.comments.each do |comment| %>
+  <p>
+    <b>Comment:</b>
+    <%= comment.body %>
+  </p>
+  <%= link_to 'Delete', sound_comment_path(@sound, comment), data: { confirm: 'Are you sure?' }, method: :delete %>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_for([@sound, @sound.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_sound_path(@sound) %> |
+<%= link_to 'Back', sounds_path %>
