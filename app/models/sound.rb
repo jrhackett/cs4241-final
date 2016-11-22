@@ -1,5 +1,5 @@
 class Sound < ApplicationRecord
-   mount_uploader :soundAttachment, SoundAttachmentUploader # Tells rails to use this uploader for this model.
+   mount_uploader :soundAttachment, SoundAttachmentUploader
    validates :name, presence: true
 
    has_many :comments
