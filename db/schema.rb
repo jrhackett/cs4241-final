@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20161122191809) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "boards", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20161122191809) do
     t.integer  "sound_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sound_id"], name: "index_comments_on_sound_id"
+    t.index ["sound_id"], name: "index_comments_on_sound_id", using: :btree
   end
 
   create_table "sounds", force: :cascade do |t|
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 20161122191809) do
     t.datetime "updated_at", null: false
     t.string   "attachment"
     t.integer  "board_id"
-    t.index ["board_id"], name: "index_sounds_on_board_id"
+    t.index ["board_id"], name: "index_sounds_on_board_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,7 +45,9 @@ ActiveRecord::Schema.define(version: 20161122191809) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "comments", "sounds"
+  add_foreign_key "sounds", "boards"
 end
