@@ -15,6 +15,10 @@
   <p>
     <b>Sound:</b>
     <%= sound.name %>
+    <audio controls loop id = "<%= sound.id %>-audio">
+      <source src = "<%= sound.soundAttachment.url %>" type = "audio/mp3">
+    </audio>
+    <%= link_to "Download Sound", sound.soundAttachment.url %>
 
     <%= link_to 'Show', board_sound_path(@board, sound) %>
     <%= link_to 'Delete', board_sound_path(@board, sound), data: { confirm: 'Are you sure?' }, method: :delete %>
@@ -28,8 +32,8 @@
     <%= f.text_area :name %>
   </div>
   <div class="field">
-    <%= f.label :attachment %>
-    <%= f.file_field :attachment %>
+    <%= f.label :soundAttachment %>
+    <%= f.file_field :soundAttachment %>
   </div>
   <div class="actions">
     <%= f.submit %>

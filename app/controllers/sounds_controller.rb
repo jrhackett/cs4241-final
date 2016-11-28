@@ -25,7 +25,7 @@ class SoundsController < ApplicationController
   # POST /sounds.json
   def create
     @board = Board.find(params[:board_id])
-    @comment = @board.sounds.create(sound_params)
+    @sound = @board.sounds.create(sound_params)
     redirect_to board_path(@board)
   end
 
@@ -65,6 +65,6 @@ class SoundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sound_params
-      params.require(:sound).permit(:name, :board_id)
+      params.require(:sound).permit(:name, :soundAttachment, :board_id)
     end
 end
