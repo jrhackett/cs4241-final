@@ -34,6 +34,7 @@ gem 'bcrypt',         '3.1.11'
 
 # file uploader
 gem 'carrierwave', '~> 0.9'
+gem 'aws-sdk', '~> 2.0'
 
 # styling gems
 gem 'bootstrap-sass', '~> 3.1.1'
