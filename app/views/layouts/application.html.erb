@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
@@ -19,8 +19,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to 'Mpgur', boards_path, class: "navbar-brand" %>
+          <h1 class = "navbar-brand">Mpgur</h1>
+          <!--%= link_to 'Mpgur', boards_path, class: "navbar-brand" %-->
         </div>
+
+        <ul class = "nav navbar-nav navbar-left">
+          <li><%= link_to boards_path, id: "home-link" do %><i class="fa fa-home" aria-hidden="true"></i><% end %></li>
+        </ul>
 
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
@@ -41,7 +46,7 @@
         </div>
       </div>
     </nav>
-  	<div class = "container">
+  	<div id = "main-content" class = "container">
   	  <%= yield %>
     </div>
   </body>
