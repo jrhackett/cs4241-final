@@ -17,6 +17,10 @@
 
 @import "font-awesome";
 
+nav .container-fluid {
+	padding-left: 0;
+}
+
 .navbar-brand {
 	transform: translateX(-50%);
 	left: 50%;
