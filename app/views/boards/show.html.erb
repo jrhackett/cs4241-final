@@ -15,7 +15,8 @@
   <p>
     <b>Sound:</b>
     <%= sound.name %>
-
+    <%= puts sound.attachment %>
+    <p class="btn-btn-primary audioButton">Play</p>
     <%= link_to 'Show', board_sound_path(@board, sound) %>
     <%= link_to 'Delete', board_sound_path(@board, sound), data: { confirm: 'Are you sure?' }, method: :delete %>
   </p>
@@ -29,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label :attachment %>
-    <%= f.file_field :attachment %>
+    <%= f.file_field :attachment, accept: 'audio/mpeg,audio/vnd.wav,audio/ogg,audio/vorbis' %>
   </div>
   <div class="actions">
     <%= f.submit %>
