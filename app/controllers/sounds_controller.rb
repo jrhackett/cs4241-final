@@ -1,5 +1,6 @@
 class SoundsController < ApplicationController
   before_action :set_sound, only: [:show, :edit, :update, :destroy]
+  before_action :delete_from_s3, only: [:destroy]
 
   # GET /sounds
   # GET /sounds.json
@@ -66,5 +67,14 @@ class SoundsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def sound_params
       params.require(:sound).permit(:name, :soundAttachment, :board_id)
+    end
+
+    def delete_from_s3
+      key = params[:soundAttachment].split('amazonaws.com/')[1]
+      S3_BUCKET.object(key).delete
+      return true
+      rescue => e
+        # Do nothing. Leave the now defunct file sitting in the bucket.
+        return true
     end
 end

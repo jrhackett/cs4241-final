@@ -39,7 +39,7 @@ gem 'fog'
 
 # styling gems
 gem 'bootstrap-sass', '~> 3.1.1'
-gem 'font-awesome-sass'
+gem "font-awesome-rails"
 
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
