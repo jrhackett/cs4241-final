@@ -1,0 +1,20 @@
+<div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 sound-container">
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-lg-1 col-md-2 col-sm-1 col-xs-1 left-content">
+        <i class = "fa fa-play" id = "sound-play-pause-<%= sound.id %>" aria-hidden = "true" onClick="handleAudioImageClick('<%= sound.id %>')"></i>
+      </div>
+      <div class = "col-lg-11 col-md-11 col-sm-11 col-xs-11 right-content">
+        <h3><%= sound.name %></h3>
+
+        <audio loop id = "<%= sound.id %>-audio">
+          <source src = "<%= sound.soundAttachment.url %>" type = "audio/mp3">
+        </audio>
+
+        <%= link_to 'Comments', board_sound_path(@board, sound) %>
+        <%= link_to 'Delete', board_sound_path(@board, sound), data: { confirm: 'Are you sure?' }, method: :delete %>
+        <%= link_to sound.soundAttachment.url do %><i class="fa fa-download" aria-hidden="true"></i><% end %>
+      </div>
+    </div>
+  </div>
+</div>
