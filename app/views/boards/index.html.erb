@@ -4,13 +4,17 @@
   <% @boards.each do |board| %>
     <div class = "col-lg-3 col-md-3 col-sm-6 col-xs-6 board-outer">
       <div class = "board-inner">
-        <h3><%= board.name %></h3>
-        <p><%= board.description %></p>
-        <p>
-          <%= link_to 'Show', board %>
-          <%= link_to 'Edit', edit_board_path(board) %>
-          <%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </p>
+        <div class="board-panel">
+		<%= link_to(board) do %>
+			<h3><%= board.name %></h3>
+			<h5><%= board.description %></h5>
+		<% end %>
+		<div class="board-tags">
+			<span>Tags: </span>
+			<a href="/">Placeholder1</a>
+			<a href="/">Placeholder2</a>
+		</div>
+	</div>
       </div>
     </div>
   <% end %>

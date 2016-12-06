@@ -3,10 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-(($) ->
-  $ ->	$(".board-outer").height($(".board-outer").width())
-) jQuery
+#(($) ->
+#  $ ->	$(".board-outer").height($(".board-outer").width())
+#) jQuery
 
-(($) ->
-  $ ->	$(".board-inner").height($(".board-inner").width())
-) jQuery
+#(($) ->
+#  $ ->	$(".board-inner").height($(".board-inner").width())
+#) jQuery

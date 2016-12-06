@@ -16,6 +16,20 @@
  *= require_self
  */
 
+@font-face {
+	font-family: 'rubik_regular';
+	src: url('Rubik-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'rubik_bold';
+	src: url('Rubik-Bold.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
 nav .container-fluid {
 	padding-left: 0;
 }
