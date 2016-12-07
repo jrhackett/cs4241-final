@@ -110,8 +110,7 @@
 			}
 
 			#sound_soundAttachment {
-				width: 50%;
-				margin: 0 auto;
+				margin-left: 12.5%;
 			}
 
 			#sound_name, #comment_body, #tag_name {
@@ -127,6 +126,8 @@
 
 			h4 {
 				margin-top: 0;
+				text-align: left;
+				margin-left: 12.5%;
 			}
 
 			div.actions {
@@ -162,6 +163,7 @@
 			width: 75%;
 			margin: 0 auto;
 			display: block;
+			text-align: left;
 
 			&:hover {
 				color: #dedede;
