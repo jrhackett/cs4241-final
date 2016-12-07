@@ -72,22 +72,43 @@
 		}
 
 		.edit-info {
-
+			text-align: center;
 		}
 
 		.add-info {
 			border-bottom: 1px solid #31444d;
+			text-align: center;
 
 			label, #sound_name, h4, input[type=file] {
 				color: white;
 			}
 
-			input {
-				margin-left: 15px;
+			#sound_name {
+				background-color: transparent;
+				border: 0;
+				border-bottom: 1px solid white;
+				width: 50%;
+
+				&:focus {
+					outline: none;
+				}
 			}
 
-			input[type=submit] {
-				margin-left: 0;
+			h4 {
+				margin-top: 0;
+			}
+
+			div.actions {
+				margin-bottom: 0;
+			}
+
+			div.field {
+				margin-bottom: 15px;
+			}
+
+			#new_sound_file {
+				max-width: 49%;
+				margin: 0 auto;
 			}
 		}
 
@@ -124,7 +145,7 @@
 	.description {
 		width: 100%;
 		min-height: 40px;
-		background-color: #da023a;
+		background-color: rgba(0,0,0,0.1);
 		position: absolute;
 		bottom: 0;
 		padding-left: 15px;
