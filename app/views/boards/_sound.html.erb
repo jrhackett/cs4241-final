@@ -13,7 +13,7 @@
 
         <p>Submitted <%= time_ago_in_words(sound.created_at) %> ago</p>
 
-        <%= link_to board_sound_path(@board, sound), class: 'sound-bottom-link'  do %><p><%= sound.comments.count %> <%= "Comment".pluralize(sound.comments.count) %></p><% end %>
+        <%= link_to board_sound_path(@board, sound), class: 'sound-bottom-link'  do %><p><%= sound.comments.count %> <%= "comment".pluralize(sound.comments.count) %></p><% end %>
         <%= link_to 'Delete', board_sound_path(@board, sound), data: { confirm: 'Are you sure?' }, method: :delete,  class: 'sound-bottom-link' %>
         <%= link_to 'Download', sound.soundAttachment.url, class: 'sound-bottom-link' %>
         <a onclick = "handleShareClick('<%= sound.id %>')" class = "sound-bottom-link">Share</a>
@@ -21,6 +21,7 @@
           <a class = "share-button" href = "https://www.facebook.com/sharer/sharer.php?u=<%= board_sound_url(@board, sound) %>"><%= image_tag "facebook.png" %></a>
           <a class = "share-button" href = "https://twitter.com/home?status=<%= board_sound_url(@board, sound) %>"><%= image_tag "twitter.png" %></a>
           <a class = "share-button" href = "https://plus.google.com/share?url=<%= board_sound_url(@board, sound) %>"><%= image_tag "google_plus.png" %></a>
+          <a class = "share-button" href = "https://www.linkedin.com/shareArticle?mini=true&url=<%= board_sound_url(@board, sound) %>&title=Check%20out%20this%20sound&summary=&source="><%= image_tag "linkedin.png" %></a>
         </div>
       </div>
     </div>

@@ -62,6 +62,7 @@ class SoundsController < ApplicationController
     def set_sound
       @sound = Sound.find(params[:id])
       @board = Board.find(params[:board_id])
+      @comments = @sound.comments.paginate :per_page => 10, :page => params[:page]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
