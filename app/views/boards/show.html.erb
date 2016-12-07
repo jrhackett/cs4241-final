@@ -40,6 +40,19 @@
             <%= f.submit 'Submit sound', :class => 'sidebar-buttons' %>
           </div>
         <% end %>
+
+        <% @tags.each do |tag| %>
+          <p><%=tag.name %></p>
+          <% end %>
+        <%= form_for([@board, @board.tags.build]) do |f| %>
+          <div class="field">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </div>
+           <div class="actions">
+            <%= f.submit 'Submit tag', :class => 'sidebar-buttons' %>
+          </div>
+        <% end %>
       </div>
       <div class = "edit-info">
         <%= link_to 'Back to home', root_path, :class => 'sidebar-buttons back-button' %>
