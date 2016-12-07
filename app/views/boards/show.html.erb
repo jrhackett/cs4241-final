@@ -9,7 +9,7 @@
       </div>
     </div>
     <% if @board.sounds.count > 0 %>
-      <%= will_paginate @sounds %>
+      <%= will_paginate @sounds, :class => 'pagination first' %>
         <% @sounds.each do |sound| %>
           <%= render 'sound', sound: sound %>
         <% end %>
