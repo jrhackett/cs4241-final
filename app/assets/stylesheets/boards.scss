@@ -80,9 +80,16 @@
 			min-height:40px;
 			width: 100%;
 			border-bottom: 1px solid #31444d;
+			text-align: center;
+
+			.tag {
+				display: inline-block;
+				color: white;
+				margin: 10px 0;
+			}
 		}
 
-		.edit-info, .add-info {
+		.edit-info, .add-info, .tag-info {
 			padding-right: 15px;
 			padding-left: 15px;
 			padding-top: 20px;
@@ -93,7 +100,7 @@
 			text-align: center;
 		}
 
-		.add-info {
+		.add-info, .tag-info {
 			border-bottom: 1px solid #31444d;
 			text-align: center;
 
@@ -107,7 +114,7 @@
 				margin: 0 auto;
 			}
 
-			#sound_name, #comment_body {
+			#sound_name, #comment_body, #tag_name {
 				background-color: transparent;
 				border: 0;
 				border-bottom: 1px solid white;
@@ -220,6 +227,10 @@
 		padding: 10px 10px 10px 10px;
 		>a {
 			color: white;
+		}
+
+		.tag {
+			display: inline;
 		}
 	}
 

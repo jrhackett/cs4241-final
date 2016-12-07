@@ -14,8 +14,13 @@
 		<% end %>
 		<div class="board-tags">
 			<span>Tags: </span>
-			<a href="/">Placeholder1</a>
-			<a href="/">Placeholder2</a>
+			<% if board.tags.count > 0 %>
+				<% board.tags.each do |tag| %>
+					<p class = "tag"><%= tag.name %>
+				<% end %>
+			<% else %>
+				<p>none</p>
+			<% end %>
 		</div>
 	</div>
       </div>
