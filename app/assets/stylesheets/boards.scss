@@ -21,19 +21,111 @@
 }
 
 #board-sounds {
-	width: 60%;
+	width: 52%;
+	margin-left: 5%;
 }
 
 #board-sounds, #board-info {
 	display: inline-block;
+	background-color: white;
+
+	.row {
+		margin-left: 0;
+		margin-right: 0;
+
+		div.pagination {
+			display: block;
+			margin: 0 10px;
+		}
+	}
 }
 
 #board-info {
-	width: 32%;
+	width: 34%;
 	float: right;
+	margin-right: 5%;
+	background-color: #41545d;
+    margin-top: 110px;
 
 	.board-info-container {
 		box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+		padding-right: 0;
+		padding-left: 0;
+
+		.blank-info {
+			min-height:40px;
+			width: 100%;
+			border-bottom: 1px solid #31444d;
+		}
+
+		.edit-info, .add-info {
+			padding-right: 15px;
+			padding-left: 15px;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+
+		.edit-info {
+
+		}
+
+		.add-info {
+			border-bottom: 1px solid #31444d;
+
+			label, #sound_name, h4, input[type=file] {
+				color: white;
+			}
+
+			input {
+				margin-left: 15px;
+			}
+
+			input[type=submit] {
+				margin-left: 0;
+			}
+		}
+
+		.sidebar-buttons {
+			border: 1px solid #dedede;
+			border-radius: 4px;
+			padding: 5px 10px;
+			background-color: #324750;
+			color: white;
+			min-width: 50%;
+
+			&:hover {
+				color: #dedede;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.sounds-header {
+	min-height: 150px;
+	background-color: #e7183f;
+	padding-left: 0;
+	padding-right: 0;
+
+	h3 {
+		padding-left: 15px;
+		padding-right: 15px;
+		color: white;
+	}
+
+	.description {
+		width: 100%;
+		min-height: 40px;
+		background-color: #da023a;
+		position: absolute;
+		bottom: 0;
+		padding-left: 15px;
+		padding-right: 15px;
+
+		p {
+			color: white;
+			margin: 10px 0;
+		}
 	}
 }
 

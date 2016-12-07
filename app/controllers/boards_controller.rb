@@ -65,6 +65,7 @@ class BoardsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_board
       @board = Board.find(params[:id])
+      @sounds = @board.sounds.paginate :per_page => 10, :page => params[:page]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
