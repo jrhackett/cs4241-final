@@ -66,6 +66,7 @@ class BoardsController < ApplicationController
     def set_board
       @board = Board.find(params[:id])
       @sounds = @board.sounds.paginate :per_page => 10, :page => params[:page]
+      @tags = @board.tags.paginate :per_page => 10, :page => params[:page]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

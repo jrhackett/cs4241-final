@@ -33,6 +33,10 @@
 	width: 52%;
 	margin-left: 5%;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+	#empty-content-message {
+		padding: 10px 10px 0 10px;
+	}
 }
 
 #board-sounds, #board-info {
@@ -76,9 +80,16 @@
 			min-height:40px;
 			width: 100%;
 			border-bottom: 1px solid #31444d;
+			text-align: center;
+
+			.tag {
+				display: inline-block;
+				color: white;
+				margin: 10px 0;
+			}
 		}
 
-		.edit-info, .add-info {
+		.edit-info, .add-info, .tag-info {
 			padding-right: 15px;
 			padding-left: 15px;
 			padding-top: 20px;
@@ -89,20 +100,25 @@
 			text-align: center;
 		}
 
-		.add-info {
+		.add-info, .tag-info {
 			border-bottom: 1px solid #31444d;
 			text-align: center;
 
-			label, #sound_name, h4, input[type=file], #comment_body {
+			label, #sound_name, h4, input[type=file], #comment_body, #tag_name {
 				color: white;
 				width: 100%;
 			}
 
-			#sound_name, #comment_body {
+			#sound_soundAttachment {
+				width: 50%;
+				margin: 0 auto;
+			}
+
+			#sound_name, #comment_body, #tag_name {
 				background-color: transparent;
 				border: 0;
 				border-bottom: 1px solid white;
-				width: 50%;
+				width: 75%;
 
 				&:focus {
 					outline: none;
@@ -121,13 +137,10 @@
 				margin-bottom: 15px;
 			}
 	
-			input[type=submit] {
-				margin-left: 0;
-				&:disabled {
-					color: #babfc1;
-					background-color: #9caaaf;
-					border: none;
-				}
+			input[type=submit]:disabled {
+				color: #babfc1;
+				background-color: #9caaaf;
+				border: none;
 			}
 
 			#fileError {
@@ -135,7 +148,7 @@
 			}
 
 			#new_sound_file {
-				max-width: 49%;
+				max-width: 75%;
 				margin: 0 auto;
 			}
 		}
@@ -146,12 +159,18 @@
 			padding: 5px 10px;
 			background-color: #324750;
 			color: white;
-			min-width: 50%;
+			width: 75%;
+			margin: 0 auto;
+			display: block;
 
 			&:hover {
 				color: #dedede;
 				text-decoration: none;
 			}
+		}
+
+		.back-button {
+			margin-bottom: 10px;
 		}
 	}
 }
@@ -212,6 +231,10 @@
 		padding: 10px 10px 10px 10px;
 		>a {
 			color: white;
+		}
+
+		.tag {
+			display: inline;
 		}
 	}
 
