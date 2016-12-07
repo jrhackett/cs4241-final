@@ -4,7 +4,7 @@
   <% @boards.each do |board| %>
     <div class = "col-lg-3 col-md-3 col-sm-6 col-xs-6 board-outer">
       <div class = "board-inner">
-        <div class="board-panel">
+        <div class="board-panel" style = "background-color: <%= board.color %>;">
 		<%= link_to(board) do %>
 			<span class="board-sound-count">
 				<%= pluralize(board.sounds.count, "sound") %>
