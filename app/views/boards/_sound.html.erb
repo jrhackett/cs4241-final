@@ -13,7 +13,7 @@
 
         <p>Submitted <%= time_ago_in_words(sound.created_at) %> ago</p>
 
-        <%= link_to board_sound_path(@board, sound), class: 'sound-bottom-link'  do %><p><%= sound.comments.count %> Comments</p><% end %>
+        <%= link_to board_sound_path(@board, sound), class: 'sound-bottom-link'  do %><p><%= sound.comments.count %> <%= "Comment".pluralize(sound.comments.count) %></p><% end %>
         <%= link_to 'Delete', board_sound_path(@board, sound), data: { confirm: 'Are you sure?' }, method: :delete,  class: 'sound-bottom-link' %>
         <%= link_to 'Download', sound.soundAttachment.url, class: 'sound-bottom-link' %>
         <a onclick = "handleShareClick('<%= sound.id %>')" class = "sound-bottom-link">Share</a>
