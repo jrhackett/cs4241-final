@@ -15,7 +15,13 @@
 
         <%= link_to board_sound_path(@board, sound), class: 'sound-bottom-link'  do %><p><%= sound.comments.count %> Comments</p><% end %>
         <%= link_to 'Delete', board_sound_path(@board, sound), data: { confirm: 'Are you sure?' }, method: :delete,  class: 'sound-bottom-link' %>
-        <%= link_to sound.soundAttachment.url do %><i class="fa fa-download" aria-hidden="true"></i><% end %>
+        <%= link_to 'Download', sound.soundAttachment.url, class: 'sound-bottom-link' %>
+        <a onclick = "handleShareClick('<%= sound.id %>')" class = "sound-bottom-link">Share</a>
+        <div id = "share-<%= sound.id %>" class = "share">
+          <a class = "share-button" href = "https://www.facebook.com/sharer/sharer.php?u=<%= board_sound_url(@board, sound) %>"><%= image_tag "facebook.png" %></a>
+          <a class = "share-button" href = "https://twitter.com/home?status=<%= board_sound_url(@board, sound) %>"><%= image_tag "twitter.png" %></a>
+          <a class = "share-button" href = "https://plus.google.com/share?url=<%= board_sound_url(@board, sound) %>"><%= image_tag "google_plus.png" %></a>
+        </div>
       </div>
     </div>
   </div>

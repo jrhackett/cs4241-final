@@ -16,3 +16,9 @@
 			$(playpausestr).addClass("fa-play-circle-o")
 			$(playpausestr).removeClass("fa-pause-circle-o")
 ) jQuery
+
+(($) ->
+	@handleShareClick = (id) ->
+		toShow = "#share-" + id
+		$(toShow).slideToggle()
+) jQuery
