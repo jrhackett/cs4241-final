@@ -3,14 +3,18 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-#(($) ->
-#  $ ->	$(".board-outer").height($(".board-outer").width())
-#) jQuery
+(($) ->
+  $ ->	$(".board-outer").height($(".board-outer").width())
+) jQuery
 
-#(($) ->
-#  $ ->	$(".board-inner").height($(".board-inner").width())
-#) jQuery
-#
+(($) ->
+  $ ->	$(".board-inner").height($(".board-inner").width())
+) jQuery
+
+(($) ->
+  $ -> $("div.board-panel").height($(".board-inner").height())
+  $ -> $("div.board-panel").width($(".board-inner").width())
+)
 
 @validateFiles = (inputFile) -> 
 	maxExceededMessage = "This file exceeds the maximum allowed file size (5MB)"
