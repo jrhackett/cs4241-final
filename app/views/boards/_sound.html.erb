@@ -2,18 +2,26 @@
   <div class = "container">
     <div class = "row">
       <div class = "col-lg-1 col-md-2 col-sm-1 col-xs-1 left-content">
-        <i class = "fa fa-play" id = "sound-play-pause-<%= sound.id %>" aria-hidden = "true" onClick="handleAudioImageClick('<%= sound.id %>')"></i>
+        <i class = "fa fa-play-circle-o" id = "sound-play-pause-<%= sound.id %>" aria-hidden = "true" onClick="handleAudioImageClick('<%= sound.id %>')"></i>
       </div>
       <div class = "col-lg-11 col-md-11 col-sm-11 col-xs-11 right-content">
-        <h4><%= sound.name %></h4>
+        <%= link_to board_sound_path(@board, sound) do %><h4 class = "sound-name"><%= sound.name %></h4><% end %>
 
         <audio loop id = "<%= sound.id %>-audio">
           <source src = "<%= sound.soundAttachment.url %>" type = "audio/mp3">
         </audio>
 
-        <%= link_to 'Comments', board_sound_path(@board, sound) %>
-        <%= link_to 'Delete', board_sound_path(@board, sound), data: { confirm: 'Are you sure?' }, method: :delete %>
-        <%= link_to sound.soundAttachment.url do %><i class="fa fa-download" aria-hidden="true"></i><% end %>
+        <p>Submitted <%= time_ago_in_words(sound.created_at) %> ago</p>
+
+        <%= link_to board_sound_path(@board, sound), class: 'sound-bottom-link'  do %><p><%= sound.comments.count %> <%= "Comment".pluralize(sound.comments.count) %></p><% end %>
+        <%= link_to 'Delete', board_sound_path(@board, sound), data: { confirm: 'Are you sure?' }, method: :delete,  class: 'sound-bottom-link' %>
+        <%= link_to 'Download', sound.soundAttachment.url, class: 'sound-bottom-link' %>
+        <a onclick = "handleShareClick('<%= sound.id %>')" class = "sound-bottom-link">Share</a>
+        <div id = "share-<%= sound.id %>" class = "share">
+          <a class = "share-button" href = "https://www.facebook.com/sharer/sharer.php?u=<%= board_sound_url(@board, sound) %>"><%= image_tag "facebook.png" %></a>
+          <a class = "share-button" href = "https://twitter.com/home?status=<%= board_sound_url(@board, sound) %>"><%= image_tag "twitter.png" %></a>
+          <a class = "share-button" href = "https://plus.google.com/share?url=<%= board_sound_url(@board, sound) %>"><%= image_tag "google_plus.png" %></a>
+        </div>
       </div>
     </div>
   </div>

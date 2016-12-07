@@ -10,3 +10,17 @@
 #(($) ->
 #  $ ->	$(".board-inner").height($(".board-inner").width())
 #) jQuery
+#
+
+@validateFiles = (inputFile) -> 
+	maxExceededMessage = "This file exceeds the maximum allowed file size (5MB)"
+	maxFileSize = $(inputFile).data('max-file-size')
+	sizeExceeded = false
+	
+	$.each(inputFile.files, () ->
+		sizeExceeded = true if (this.size && maxFileSize && this.size > parseInt(maxFileSize))
+	)
+	
+	$("#fileError").text(maxExceededMessage) if sizeExceeded
+	$("#new_sound .actions > input").attr disabled: 'disabled' if sizeExceeded
+

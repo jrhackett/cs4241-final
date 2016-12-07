@@ -9,10 +9,16 @@
 		audio = $(audiostr)[0];
 		if audio.paused
 			audio.play()
-			$(playpausestr).removeClass("fa-play")
-			$(playpausestr).addClass("fa-pause")
+			$(playpausestr).removeClass("fa-play-circle-o")
+			$(playpausestr).addClass("fa-pause-circle-o")
 		else
 			audio.pause()
-			$(playpausestr).addClass("fa-play")
-			$(playpausestr).removeClass("fa-pause")
+			$(playpausestr).addClass("fa-play-circle-o")
+			$(playpausestr).removeClass("fa-pause-circle-o")
+) jQuery
+
+(($) ->
+	@handleShareClick = (id) ->
+		toShow = "#share-" + id
+		$(toShow).slideToggle()
 ) jQuery

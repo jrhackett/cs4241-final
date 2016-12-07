@@ -7,12 +7,7 @@
         <div class="board-panel">
 		<%= link_to(board) do %>
 			<span class="board-sound-count">
-				<%= board.sounds.count %> 
-				<% if board.sounds.count != 1 %>
-					 sounds
-				<% else %>
-					 sound
-				<% end %>
+				<%= pluralize(board.sounds.count, "sound") %>
 			</span>
 			<h3><%= board.name %></h3>
 			<h5><%= board.description %></h5>
