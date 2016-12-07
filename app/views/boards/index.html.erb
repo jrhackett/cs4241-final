@@ -26,5 +26,12 @@
       </div>
     </div>
   <% end %>
+  <%= link_to new_board_path do %>
+	<div class = "col-lg-3 col-md-3 col-sm-6 col-xs-6 board-outer">
+		<div class = "board-inner new-board">
+			<h3 class = "add-new-board">+</h3>
+		</div>
+	</div>
+  <% end %>
 </div>
-<%= link_to '+', new_board_path, :class => "add-board-button" %>
+

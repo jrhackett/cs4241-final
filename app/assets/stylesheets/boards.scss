@@ -26,6 +26,23 @@
 			font-family: 'rubik_regular';
 			font-weight: bold;
 		}
+
+		&.new-board {
+			border: 1px solid rgba(255, 255, 255, 0.5);
+			border-radius: 0;
+			text-align: center;
+
+			h3 {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: 0;
+				margin-bottom: 0;
+				transform: translate(-50%, -50%);
+				font-size:50px;
+				color: white;
+			}
+		}
 	}
 }
 
