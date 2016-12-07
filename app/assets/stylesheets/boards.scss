@@ -83,7 +83,7 @@
 		margin: 0 auto;
 		float: none;
 
-		#board_name, #board_description {
+		#board_name, #board_description, #session_email, #session_password {
 			background-color: transparent;
 			border: 0;
 			border-bottom: 1px solid white;
@@ -94,6 +94,25 @@
 				outline: none;
 			}
 		}
+
+		h4 {
+			color: white;
+		}
+
+		.remember {
+			font-weight:400;
+		}
+
+		.remember-checkbox {
+			text-align: left;
+			width: 75% !important;
+			margin: 0 auto;
+		}
+
+		#session_email, #session_password, .remember-checkbox, .sidebar-buttons {
+			margin-bottom: 10px !important;
+		}
+
 	}
 
 	.board-info-container {
