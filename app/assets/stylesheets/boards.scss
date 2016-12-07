@@ -79,11 +79,11 @@
 			border-bottom: 1px solid #31444d;
 			text-align: center;
 
-			label, #sound_name, h4, input[type=file] {
+			label, #sound_name, h4, input[type=file], #comment_body {
 				color: white;
 			}
 
-			#sound_name {
+			#sound_name, #comment_body {
 				background-color: transparent;
 				border: 0;
 				border-bottom: 1px solid white;
