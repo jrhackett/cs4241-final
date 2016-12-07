@@ -1,21 +1,40 @@
-<% if !@sound.errors.empty? %>
-   <div class = "alert alert-error">
-      
-      <ul>
-         <% @sound.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-         <% end %>
-      </ul>
-      
-   </div>
-<% end %>
 
-<div class = "well">
-   <%= form_for [@board, @sound], html: { multipart: true } do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.label :soundAttachment %>
-      <%= f.file_field :soundAttachment %>
-      <%= f.submit "Save", class: "btn btn-primary" %>
-   <% end %>
+<div id = "board-info" class = "form">
+  <div class = "row">
+    <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 board-info-container">
+      <div class = "blank-info"></div>
+      <%= form_for([@board, @sound]) do |f| %>
+        <% if !@sound.errors.empty? %>
+          <div class = "alert alert-error">
+
+            <ul>
+              <% @sound.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+
+          </div>
+        <% end %>
+
+        <div class = "add-info">
+          <div class="field">
+            <%= f.text_field :name, placeholder: "Board name" %>
+          </div>
+
+          <div class="field">
+            <%= f.file_field :soundAttachment %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit 'Submit board', :class => 'sidebar-buttons' %>
+          </div>
+        </div>
+
+        <div class = "edit-info">
+          <%= link_to 'Show this board', board_sound_path(@board, @sound), :class => 'sidebar-buttons back-button' %>
+          <%= link_to 'Back to home', boards_path(@board), :class => 'sidebar-buttons' %>
+        </div>
+      <% end %> 
+    </div>
+  </div>
 </div>
