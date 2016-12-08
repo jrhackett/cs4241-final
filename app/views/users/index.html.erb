@@ -1,12 +1,33 @@
-<% provide(:title, 'All users') %>
-<h1>All users</h1>
+<p id="notice"><%= notice %></p>
 
-<%= will_paginate %>
+<div id = "board-sounds">
+  <div class = "row">
+    <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 sounds-header">
+      <h3>All users</h3>
+      <div class = "description"></div>
+    </div>
+    <% if @users.count > 0 %>
+      <%= will_paginate %>
+				    <%= render @users %>
+			<%= will_paginate %>
+    <% else %>
+      <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <p id = "empty-content-message">There doesn't seem to be anything here! Be first user to sign up.</p>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<ul class="users">
-    <%= render @users %>
-</ul>
-
-<%= will_paginate %>
-
-<%= link_to 'New User', new_user_path %>
+<div id = "board-info">
+  <div class = "row">
+    <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 board-info-container">
+      <div class = "blank-info"></div>
+      <div class = "add-info">
+        <%= link_to 'Create a new user', new_user_path, class: 'sidebar-buttons' %>
+      </div>
+      <div class = "edit-info">
+        <%= link_to 'Back to home', boards_path, :class => 'sidebar-buttons back-button' %>
+      </div>
+    </div>
+  </div>
+</div>
