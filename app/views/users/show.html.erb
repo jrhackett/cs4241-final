@@ -9,9 +9,9 @@
 
 				<%= gravatar_for @user %>
 
-				<h3><%= @user.name %></h3>
+				<h3 class = "user-header"><%= @user.name %></h3>
 
-				<p><%= @user.email %></p>
+				<p class = "user-content"><%= @user.email %></p>
 
 				<%= link_to 'Edit', edit_user_path(@user), class: 'sidebar-buttons' %>
 				<%= link_to 'Back', users_path, class: 'sidebar-buttons' %>
