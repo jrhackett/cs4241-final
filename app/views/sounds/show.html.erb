@@ -6,7 +6,7 @@
       <h3><%= @sound.name %></h3>
       <div class = "description">
         <i class = "fa fa-play-circle-o" id = "sound-play-pause-<%= @sound.id %>" aria-hidden = "true" onClick="handleAudioImageClick('<%= @sound.id %>')"></i>
-        <audio loop id = "<%= @sound.id %>-audio">
+        <audio controls loop id = "<%= @sound.id %>-audio">
           <source src = "<%= @sound.soundAttachment.url %>" type = "audio/mp3">
         </audio>
       </div>
