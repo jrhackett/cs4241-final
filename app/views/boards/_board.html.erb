@@ -1,0 +1,12 @@
+<div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 sound-container">
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 right-content">
+      	<h4><%= board.name %></h4>
+      	<p><%= board.description %></p>
+      	<p><%= pluralize(board.sounds.count, "sound") %></p>
+      	<p>Submitted <%= time_ago_in_words(board.created_at) %> ago</p>
+      </div>
+    </div>
+  </div>
+</div>
