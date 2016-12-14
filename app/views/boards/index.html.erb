@@ -1,37 +1,56 @@
 <p id="notice"><%= notice %></p>
 
-<div class = "row">
-  <% @boards.each do |board| %>
-    <div class = "col-lg-3 col-md-3 col-sm-6 col-xs-6 board-outer">
-      <div class = "board-inner">
-        <div class="board-panel" style = "background-color: <%= board.color %>;">
-		<%= link_to(board) do %>
-			<span class="board-sound-count">
-				<%= pluralize(board.sounds.count, "sound") %>
-			</span>
-			<h3 class="name"><%= board.name %></h3>
-			<h5 class="desc"><%= board.description %></h5>
-		<% end %>
-		<div class="board-tags">
-			<span>Tags: </span>
-			<% if board.tags.count > 0 %>
-				<% board.tags.each do |tag| %>
-					<p class = "tag"><%= tag.name %>
-				<% end %>
-			<% else %>
-				<p class = "tag">none</p>
-			<% end %>
-		</div>
-	</div>
+<div id = "board-sounds">
+  <div class = "row">
+    <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 sounds-header">
+      <h3>SoundShare</h3>
+      <div class = "description">
+
       </div>
     </div>
-  <% end %>
-  <%= link_to new_board_path do %>
-	<div class = "col-lg-3 col-md-3 col-sm-6 col-xs-6 board-outer">
-		<div class = "board-inner new-board">
-			<h3 class = "add-new-board">+</h3>
-		</div>
+    <% if @boards.count > 0 %>
+    	<%= will_paginate @boards, :class => 'pagination first' %>
+    		<% @boards.each do |board| %>
+    			<%= render 'board', board: board %>
+  			<% end %>
+      <%= will_paginate @sounds %>
+    <% else %>
+		  <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		    <p id = "empty-content-message">There doesn't seem to be anything here! Be first first to create a new board.</p>
+		  </div>
+		<% end %>
 	</div>
-  <% end %>
+</div>
+
+
+<div id = "board-info">
+  <div class = "row">
+    <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 board-info-container">
+      <div class = "blank-info"></div>
+      <div class = "add-info">
+        <h4>Submit a new board</h4>
+        <%= form_for Board.new do |f| %>
+          <div class="field">
+            <%= f.text_field :name, placeholder: "Board name" %>
+          </div>
+
+          <div class="field">
+            <%= f.text_field :description, placeholder: "Board description" %>
+          </div>
+
+          <div class="field color_field">
+          	<%= f.label :color, class: 'color_label' %>
+            <%= f.color_field :color %>
+          </div>
+          <div class="actions">
+            <%= f.submit 'Submit board', :class => 'sidebar-buttons' %>
+          </div>
+        <% end %>
+      </div>
+      <div class = "edit-info">
+
+      </div>
+    </div>
+  </div>
 </div>
 
