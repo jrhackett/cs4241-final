@@ -5,7 +5,7 @@
       	<%= link_to board_path(board) do %><h4 class = "sound-name"><%= board.name %></h4><% end %>
       	<p><%= board.description %></p>
       	<% if board.tags.count > 0 %>
-      		<div>
+      		<div class = "tag">
 	      		<span>Tags: </span>
 		      	<% board.tags.each do |tag| %>
 		          <span>#<%=tag.name %> </span>

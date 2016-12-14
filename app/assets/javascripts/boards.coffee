@@ -48,7 +48,7 @@ SetupSearch = () ->
 SearchTags = () ->
   console.log 'Searching...'
   searchterm = document.getElementById('searchbar').value
-  boards = document.getElementsByClassName('board-outer')
+  boards = document.getElementsByClassName('sound-container')
   n = boards.length
   i = 0
   while i < n
@@ -57,9 +57,9 @@ SearchTags = () ->
     nameHasTerm = e.getElementsByClassName('name').length > 0 and e.getElementsByClassName('name')[0].innerText.toLowerCase().indexOf(searchterm) != -1
     if SearchHelper(searchterm, tags) or nameHasTerm
       console.log 'FOUND!'
-      e.style.opacity = '1.0'
+      e.style.display = 'block'
     else
-      e.style.opacity = '0.3'
+      e.style.display = 'none'
     i++
   console.log 'Done searching'
   return
