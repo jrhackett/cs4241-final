@@ -12,10 +12,8 @@
     <% if @boards.count > 0 %>
     	<%= will_paginate @boards, :class => 'pagination first' %>
     		<% @boards.each do |board| %>
-    		<%= link_to(board) do %>
     			<%= render 'board', board: board %>
-    			<% end %>
-				<% end %>
+  			<% end %>
       <%= will_paginate @sounds %>
     <% else %>
 		  <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
