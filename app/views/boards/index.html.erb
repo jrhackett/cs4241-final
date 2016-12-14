@@ -32,15 +32,16 @@
         <h4>Submit a new board</h4>
         <%= form_for Board.new do |f| %>
           <div class="field">
-            <%= f.text_field :name, placeholder: "Board name", :class => 'sidebar-buttons' %>
+            <%= f.text_field :name, placeholder: "Board name" %>
           </div>
 
           <div class="field">
-            <%= f.text_field :description, placeholder: "Board description", :class => 'sidebar-buttons' %>
+            <%= f.text_field :description, placeholder: "Board description" %>
           </div>
 
-          <div class="field">
-            <span class = "sidebar-buttons">Board color: <%= f.color_field :color %></span>
+          <div class="field color_field">
+          	<%= f.label :color, class: 'color_label' %>
+            <%= f.color_field :color %>
           </div>
           <div class="actions">
             <%= f.submit 'Submit board', :class => 'sidebar-buttons' %>
