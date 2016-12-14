@@ -18,7 +18,7 @@ ready = ->
   $('.board-inner').height $('.board-inner').width()
   $('div.board-panel').height $('.board-inner').height()
   $('div.board-panel').width $('.board-inner').width()
-  SearchTags "moba"
+  SetupSearch()
   return
 
 $(document).on('turbolinks:load', ready)
@@ -36,16 +36,27 @@ $(document).on('turbolinks:load', ready)
 	$("#new_sound .actions > input").attr disabled: 'disabled' if sizeExceeded
 	return
 
-SearchTags = (searchterm) ->
+
+SetupSearch = () ->
+	document.getElementById('search').addEventListener 'click', SearchTags
+	$('#searchbar').keydown (event) ->
+  	if event.keyCode == 13
+    	SearchTags()
+  	return
+
+SearchTags = () ->
   console.log 'Searching...'
+  searchterm = document.getElementById('searchbar').value
   boards = document.getElementsByClassName('board-outer')
   n = boards.length
   i = 0
   while i < n
     e = boards[i]
     tags = e.getElementsByClassName('tag')
-    if SearchHelper(searchterm, tags)
+    nameHasTerm = e.getElementsByClassName('name').length > 0 and e.getElementsByClassName('name')[0].innerText.toLowerCase().indexOf(searchterm) != -1
+    if SearchHelper(searchterm, tags) or nameHasTerm
       console.log 'FOUND!'
+      e.style.opacity = '1.0'
     else
       e.style.opacity = '0.3'
     i++
@@ -57,7 +68,7 @@ SearchHelper = (searchterm, tags) ->
   i = 0
   while i < n
     e = tags[i]
-    if e.innerText == searchterm
+    if e.innerText.toLowerCase().indexOf(searchterm) != -1
       return true
     i++
   false
