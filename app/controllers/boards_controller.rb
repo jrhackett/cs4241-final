@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
-    @boards = Board.all
+    @boards = Board.paginate(:per_page => 10, :page => params[:page]).order("created_at DESC")
   end
 
   # GET /boards/1
@@ -65,7 +65,7 @@ class BoardsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_board
       @board = Board.find(params[:id])
-      @sounds = @board.sounds.paginate :per_page => 10, :page => params[:page]
+      @sounds = @board.sounds.paginate(:per_page => 10, :page => params[:page]).order("created_at DESC")
       @tags = @board.tags.paginate :per_page => 10, :page => params[:page]
     end
 

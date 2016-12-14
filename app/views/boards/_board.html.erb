@@ -1,0 +1,26 @@
+<div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 sound-container">
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 right-content">
+      	<%= link_to board_path(board) do %><h4 class = "sound-name"><%= board.name %></h4><% end %>
+      	<p><%= board.description %></p>
+      	<% if board.tags.count > 0 %>
+      		<div>
+	      		<span>Tags: </span>
+		      	<% board.tags.each do |tag| %>
+		          <span>#<%=tag.name %> </span>
+		        <% end %>
+	        </div>
+        <% end %>
+      	<%= link_to board_path(board), class: 'sound-bottom-link' do %><p><%= pluralize(board.sounds.count, "sound") %></p><% end %>
+      	<a onclick = "handleShareClick('<%= board.id %>')" class = "sound-bottom-link">Share</a>
+        <div id = "share-<%= board.id %>" class = "share">
+          <a class = "share-button" href = "https://www.facebook.com/sharer/sharer.php?u=<%= board_url(board) %>"><%= image_tag "facebook.png" %></a>
+          <a class = "share-button" href = "https://twitter.com/home?status=<%= board_url(board) %>"><%= image_tag "twitter.png" %></a>
+          <a class = "share-button" href = "https://plus.google.com/share?url=<%= board_url(board) %>"><%= image_tag "google_plus.png" %></a>
+          <a class = "share-button" href = "https://www.linkedin.com/shareArticle?mini=true&url=<%= board_url(board) %>&title=Check%20out%20this%20sound%20board&summary=&source="><%= image_tag "linkedin.png" %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -81,6 +81,29 @@
 	margin-right: 5%;
 	background-color: #41545d;
 
+	#board_name, #board_description {
+		background-color: transparent;
+		border: 0;
+		border-bottom: 1px solid white;
+		width: 75%;
+		color: white;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.field.color_field {
+	    width: 75%;
+	    text-align: left;
+	    margin-left: 12.5%;
+	}
+
+	label.color_label {
+	    font-weight: 400;
+	    display: inline;
+	}
+
 	&.form {
 		display: block;
 		width: 50%;
