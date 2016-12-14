@@ -39,9 +39,10 @@ $(document).on('turbolinks:load', ready)
 
 SetupSearch = () ->
 	document.getElementById('search').addEventListener 'click', SearchTags
-	$('#searchbar').keydown (event) ->
-  	if event.keyCode == 13
-    	SearchTags()
+	document.getElementById('search').addEventListener 'keypress', (e) ->
+  	key = e.which or e.keyCode
+  	if key == 13
+  		SearchTags()
   	return
 
 SearchTags = () ->
