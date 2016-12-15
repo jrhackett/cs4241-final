@@ -73,6 +73,10 @@ input{
 	margin-top: 0;
 }
 
+.searchbar{
+	margin: none;
+	padding: none;
+}
 #main-header {
 	background-color: #263c46;
 	width: 100%;

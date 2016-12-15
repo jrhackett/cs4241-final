@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
-    if params[:search] != "" && params[:search] != nil
+    if params[:search] != nil
       @boards = Board.joins(:tags).where("tags.name" => params[:search]).paginate(:per_page => 10, :page => params[:page]).order("created_at DESC")
     else
       @boards = Board.paginate(:per_page => 10, :page => params[:page]).order("created_at DESC")
