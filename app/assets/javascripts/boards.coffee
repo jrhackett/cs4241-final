@@ -18,7 +18,6 @@ ready = ->
   $('.board-inner').height $('.board-inner').width()
   $('div.board-panel').height $('.board-inner').height()
   $('div.board-panel').width $('.board-inner').width()
-  SetupSearch()
   return
 
 $(document).on('turbolinks:load', ready)
@@ -36,40 +35,3 @@ $(document).on('turbolinks:load', ready)
 	$("#new_sound .actions > input").attr disabled: 'disabled' if sizeExceeded
 	return
 
-
-SetupSearch = () ->
-	document.getElementById('search').addEventListener 'click', SearchTags
-	document.getElementById('search').addEventListener 'keypress', (e) ->
-  	key = e.which or e.keyCode
-  	if key == 13
-  		SearchTags()
-  	return
-
-SearchTags = () ->
-  console.log 'Searching...'
-  searchterm = document.getElementById('searchbar').value
-  boards = document.getElementsByClassName('sound-container')
-  n = boards.length
-  i = 0
-  while i < n
-    e = boards[i]
-    tags = e.getElementsByClassName('tag')
-    nameHasTerm = e.getElementsByClassName('name').length > 0 and e.getElementsByClassName('name')[0].innerText.toLowerCase().indexOf(searchterm) != -1
-    if SearchHelper(searchterm, tags) or nameHasTerm
-      console.log 'FOUND!'
-      e.style.display = 'block'
-    else
-      e.style.display = 'none'
-    i++
-  console.log 'Done searching'
-  return
-
-SearchHelper = (searchterm, tags) ->
-  n = tags.length
-  i = 0
-  while i < n
-    e = tags[i]
-    if e.innerText.toLowerCase().indexOf(searchterm) != -1
-      return true
-    i++
-  false
