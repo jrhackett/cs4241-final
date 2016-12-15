@@ -12,5 +12,11 @@ Rails.application.routes.draw do
 	    resources :comments
     end
   end
+  resources :users do
+    resources :comments
+  end
+  resources :users do
+    resources :sounds
+  end
   root "boards#index"
 end

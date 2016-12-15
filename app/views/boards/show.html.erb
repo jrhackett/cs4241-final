@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
-
+<% if !notice.blank?  %>
+<p id="notice" class="alert alert-success"><%= notice %></p>
+<%end%>
 <div id = "board-sounds">
   <div class = "row">
     <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 sounds-header" style = "background-color: <%= @board.color %>;">
@@ -24,7 +25,8 @@
 
 <div id = "board-info">
   <div class = "row">
-    <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 board-info-container">
+    <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 board-info-container"> 	    
+      <% if logged_in? %>
       <div class = "blank-info">
         <% @tags.each do |tag| %>
           <p class = "tag">#<%=tag.name %></p>
@@ -33,7 +35,8 @@
       <div class = "add-info">
         <h4>Submit a new sound</h4>
         <%= form_for([@board, @board.sounds.build]) do |f| %>
-          <div class="field">
+	  <%= f.hidden_field :user_id, value: current_user.id %>     
+	  <div class="field">
             <%= f.text_field :name, placeholder: "Sound name" %>
           </div>
           <div class="field">
@@ -62,6 +65,13 @@
         <%= link_to 'Back to home', root_path, :class => 'sidebar-buttons back-button' %>
         <%= link_to 'Edit this board', edit_board_path(@board), :class => 'sidebar-buttons' %>
       </div>
+    <% else %>
+	<div class="tag-info">
+		<h4><%=link_to "Log in", login_path %>  to add sounds!</h4>
+		<%= link_to 'Back to home', root_path, :class => 'sidebar-buttons back-button' %>
+ 
+	</div>
+    <% end %>
     </div>
   </div>
 </div>
