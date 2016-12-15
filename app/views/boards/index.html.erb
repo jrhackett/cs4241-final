@@ -31,8 +31,8 @@
       <div class = "add-info searchbar">
         <h4>Search by tags</h4>
         <%= form_tag boards_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :name => nil %>
+          <%= text_field_tag :search, params[:search], placeholder: 'Search' %>
+          <%= submit_tag "Search", :name => nil, class: 'sidebar-buttons' %>
         <% end %>
       </div>
       <% if logged_in? %>	    
@@ -61,7 +61,7 @@
       </div>
       <% else %>
 	      <div class="add-info">
-	      	<h4><%= link_to "Log in", login_path %> to add some soundboards!</h4>
+	      	<h4><%= link_to "Log in", login_path %> to add some boards!</h4>
 	      </div>
       <% end %>
     </div>
