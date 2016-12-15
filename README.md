@@ -11,7 +11,7 @@ This application gives users the ability to create collections of sound files an
 
 ### Formatting
 -Users can give themselves an avatar for recognition using the Gravatar API.
--Boards are neatly paginated at 10 boards per page
+-Boards are neatly paginated at 10 boards per page.
 -Boards have tags which can be edited by users, and which are displayed alongside other board details.
 
 ### Searching
