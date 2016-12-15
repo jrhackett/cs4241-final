@@ -5,14 +5,14 @@ This application gives users the ability to create collections of sound files an
 ## Features
 
 ### Persistent Storage
--Allows for persistent storage of 'boards' which contain sounds, tags and comments.
+-Allows for persistent storage of 'boards' which contain sounds, descriptions, tags and comments.
 -Features checks to prevent oversized sound files from being uploaded (this prevents things like music piracy)
 -Allows for persistent creation of user accounts with encrypted and salted credentials.
 
 ### Formatting
 -Users can give themselves an avatar for recognition using the Gravatar API.
 -Boards are neatly paginated at 10 boards per page
--Boards have tags which can be edited by users, and which are displayed 
+-Boards have tags which can be edited by users, and which are displayed alongside other board details.
 
 ### Searching
 -Users can search through the tags of all stored boards and get a paginated list of matching boards. 
