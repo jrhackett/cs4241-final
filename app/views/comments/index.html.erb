@@ -14,6 +14,7 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
+	<td><%= comment.user.id %></td>
         <td><%= comment.body %></td>
         <td><%= comment.sound %></td>
         <td><%= link_to 'Show', comment %></td>

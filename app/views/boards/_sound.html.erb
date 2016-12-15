@@ -11,7 +11,7 @@
           <source src = "<%= sound.soundAttachment.url %>" type = "audio/mp3">
         </audio>
 
-        <p>Submitted <%= time_ago_in_words(sound.created_at) %> ago</p>
+	<p>Submitted <%= time_ago_in_words(sound.created_at) %> ago by <%= link_to User.find(sound.user_id).name, User.find(sound.user_id) %></p>
 
         <%= link_to board_sound_path(@board, sound), class: 'sound-bottom-link'  do %><p><%= sound.comments.count %> <%= "comment".pluralize(sound.comments.count) %></p><% end %>
         <%= link_to 'Delete', board_sound_path(@board, sound), data: { confirm: 'Are you sure?' }, method: :delete,  class: 'sound-bottom-link' %>

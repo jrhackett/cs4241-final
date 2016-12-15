@@ -6,7 +6,7 @@ class Sound < ApplicationRecord
    validate :soundSizeValidation
    has_many :comments, dependent: :destroy
    belongs_to :board
-
+   belongs_to :user
    private
 
    ## Validates whether or not the size of the SoundAttachment exceeds 5MB. If it does, the server should not upload it.

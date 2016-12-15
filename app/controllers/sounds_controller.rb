@@ -67,7 +67,7 @@ class SoundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sound_params
-      params.require(:sound).permit(:name, :soundAttachment, :board_id)
+      params.require(:sound).permit(:name, :soundAttachment, :board_id, :user_id)
     end
 
     def delete_from_s3
